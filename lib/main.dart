@@ -37,6 +37,36 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const AppBarComponent(title: "Detail", firstImage: "images/arrow-left.jpg", secondImage: "images/Heart.jpg")
+      ),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class AppBarComponent extends StatelessWidget {
+  const AppBarComponent({super.key, required this.title, required this.firstImage, required this.secondImage});
+
+  final String title;
+  final String firstImage;
+  final String secondImage;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Image.asset(firstImage),
+        Text(title),
+        Image.asset(secondImage)
+      ],
+    );
   }
 }

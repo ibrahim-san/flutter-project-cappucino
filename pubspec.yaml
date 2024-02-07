@@ -17,3 +17,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+          - images/Heart.jpg
+          - images/milk.jpg
+          - images/Rectangle 1706.jpg
+          - images/arrow-left.jpg
+          - images/bean.jpg
