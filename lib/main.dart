@@ -73,34 +73,42 @@ class MyHomePage extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 245, 241, 241),
-                          borderRadius: BorderRadius.circular(20),
-                           ),
+                            color: const Color.fromARGB(255, 245, 241, 241),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                           child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.asset(
-                          'images/bean.jpg',
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.asset(
+                              'images/bean.jpg',
                             ),
                           ),
                         ),
                         Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 245, 241, 241),
-                          borderRadius: BorderRadius.circular(20),
-                           ),
+                            color: const Color.fromARGB(255, 245, 241, 241),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                           child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.asset(
-                          'images/milk.jpg',
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.asset(
+                              'images/milk.jpg',
                             ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                )
+                ),
               ],
+            ),
+            SizedBox(
+              width: 350,
+              child: Divider(
+                    color: Colors.black.withOpacity(0.25), // Semi-opaque line
+                    thickness: 1, // Thin line
+                    height: 60, // Space above and below the divider
+                  ),
             )
           ],
         ),
