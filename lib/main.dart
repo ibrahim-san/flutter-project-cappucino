@@ -66,11 +66,38 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Row(
-                    children: [
-                      Image.asset('images/bean.jpg'),
-                      Image.asset('images/milk.jpg')
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 50, left: 100),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 245, 241, 241),
+                          borderRadius: BorderRadius.circular(20),
+                           ),
+                          child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(
+                          'images/bean.jpg',
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 245, 241, 241),
+                          borderRadius: BorderRadius.circular(20),
+                           ),
+                          child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(
+                          'images/milk.jpg',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],
