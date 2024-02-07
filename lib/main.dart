@@ -43,9 +43,18 @@ class MyHomePage extends StatelessWidget {
               title: "Detail",
               firstImage: "images/arrow-left.jpg",
               secondImage: "images/Heart.jpg")),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
-          children: [],
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 15, bottom: 15),
+              child: Center(
+                child: Image.asset("images/Rectangle 1706.jpg"),
+              ),
+            ),
+            const MenuItem(
+                description: "with Chocolate", foodItem: "Cappucino"),
+          ],
         ),
       ),
     );
@@ -69,7 +78,7 @@ class AppBarComponent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 75.0),
+          padding: const EdgeInsets.only(right: 85.0),
           child: Image.asset(firstImage),
         ),
         Text(
@@ -78,9 +87,48 @@ class AppBarComponent extends StatelessWidget {
               fontFamily: "Sora", fontSize: 20.0, fontWeight: FontWeight.bold),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 75.0),
+          padding: const EdgeInsets.only(left: 85.0),
           child: Image.asset(secondImage),
         )
+      ],
+    );
+  }
+}
+
+class MenuItem extends StatelessWidget {
+  const MenuItem(
+      {super.key, required this.description, required this.foodItem});
+
+  final String foodItem;
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 35),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                foodItem,
+                style: const TextStyle(
+                    fontFamily: "Sora",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25),
+              ),
+              Text(
+                description,
+                style: const TextStyle(
+                    fontFamily: "Sora",
+                    fontWeight: FontWeight.w100,
+                    fontSize: 13),
+              ),
+            ],
+          ),
+        ),
+        const Spacer(),
       ],
     );
   }
