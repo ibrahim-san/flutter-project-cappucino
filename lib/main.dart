@@ -49,7 +49,7 @@ class MyHomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 15, bottom: 15),
               child: Center(
-                child: Image.asset("images/Rectangle 1706.jpg"),
+                child: Image.asset("images/Rectangle 1706.jpg", scale: 0.87,),
               ),
             ),
             const MenuItem(
@@ -78,7 +78,7 @@ class AppBarComponent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 85.0),
+          padding: const EdgeInsets.only(right: 95.0),
           child: Image.asset(firstImage),
         ),
         Text(
@@ -87,7 +87,7 @@ class AppBarComponent extends StatelessWidget {
               fontFamily: "Sora", fontSize: 20.0, fontWeight: FontWeight.bold),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 85.0),
+          padding: const EdgeInsets.only(left: 95.0),
           child: Image.asset(secondImage),
         )
       ],
@@ -120,9 +120,9 @@ class MenuItem extends StatelessWidget {
               ),
               Text(
                 description,
-                style: const TextStyle(
+                style: TextStyle(
                     fontFamily: "Sora",
-                    fontWeight: FontWeight.w100,
+                    color: Colors.black.withOpacity(0.5),
                     fontSize: 13),
               ),
             ],
