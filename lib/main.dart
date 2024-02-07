@@ -55,8 +55,26 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            const MenuItem(
-                description: "with Chocolate", foodItem: "Cappucino", rating: 4.8, quantity: 230,),
+            Row(
+              children: [
+                const Expanded(
+                  child: MenuItem(
+                    description: "with Chocolate",
+                    foodItem: "Cappucino",
+                    rating: 4.8,
+                    quantity: 230,
+                  ),
+                ),
+                Expanded(
+                  child: Row(
+                    children: [
+                      Image.asset('images/bean.jpg'),
+                      Image.asset('images/milk.jpg')
+                    ],
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
@@ -145,11 +163,17 @@ class MenuItem extends StatelessWidget {
                   ),
                   Text(
                     "$rating",
-                    style: const TextStyle(fontFamily: "Sora", fontSize: 17, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontFamily: "Sora",
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
                   ),
                   Text(
                     "($quantity)",
-                    style: TextStyle(fontFamily: "Sora", fontSize: 12, color: Colors.black.withOpacity(0.5)),
+                    style: TextStyle(
+                        fontFamily: "Sora",
+                        fontSize: 12,
+                        color: Colors.black.withOpacity(0.5)),
                   )
                 ],
               )
