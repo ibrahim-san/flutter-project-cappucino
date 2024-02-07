@@ -49,11 +49,14 @@ class MyHomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 15, bottom: 15),
               child: Center(
-                child: Image.asset("images/Rectangle 1706.jpg", scale: 0.87,),
+                child: Image.asset(
+                  "images/Rectangle 1706.jpg",
+                  scale: 0.87,
+                ),
               ),
             ),
             const MenuItem(
-                description: "with Chocolate", foodItem: "Cappucino"),
+                description: "with Chocolate", foodItem: "Cappucino", rating: 4.8, quantity: 230,),
           ],
         ),
       ),
@@ -97,10 +100,16 @@ class AppBarComponent extends StatelessWidget {
 
 class MenuItem extends StatelessWidget {
   const MenuItem(
-      {super.key, required this.description, required this.foodItem});
+      {super.key,
+      required this.description,
+      required this.foodItem,
+      required this.quantity,
+      required this.rating});
 
   final String foodItem;
   final String description;
+  final double rating;
+  final int quantity;
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +127,7 @@ class MenuItem extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 25),
               ),
+              const SizedBox(height: 10.0),
               Text(
                 description,
                 style: TextStyle(
@@ -125,6 +135,24 @@ class MenuItem extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     fontSize: 13),
               ),
+              const SizedBox(height: 10.0),
+              Row(
+                children: [
+                  const Icon(
+                    Icons.star,
+                    color: Colors.yellow,
+                    size: 24.0,
+                  ),
+                  Text(
+                    "$rating",
+                    style: const TextStyle(fontFamily: "Sora", fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "($quantity)",
+                    style: TextStyle(fontFamily: "Sora", fontSize: 12, color: Colors.black.withOpacity(0.5)),
+                  )
+                ],
+              )
             ],
           ),
         ),
