@@ -39,13 +39,13 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const AppBarComponent(title: "Detail", firstImage: "images/arrow-left.jpg", secondImage: "images/Heart.jpg")
-      ),
+          title: const AppBarComponent(
+              title: "Detail",
+              firstImage: "images/arrow-left.jpg",
+              secondImage: "images/Heart.jpg")),
       body: const SingleChildScrollView(
         child: Column(
-          children: [
-
-          ],
+          children: [],
         ),
       ),
     );
@@ -53,7 +53,11 @@ class MyHomePage extends StatelessWidget {
 }
 
 class AppBarComponent extends StatelessWidget {
-  const AppBarComponent({super.key, required this.title, required this.firstImage, required this.secondImage});
+  const AppBarComponent(
+      {super.key,
+      required this.title,
+      required this.firstImage,
+      required this.secondImage});
 
   final String title;
   final String firstImage;
@@ -62,10 +66,21 @@ class AppBarComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Image.asset(firstImage),
-        Text(title),
-        Image.asset(secondImage)
+        Padding(
+          padding: const EdgeInsets.only(right: 75.0),
+          child: Image.asset(firstImage),
+        ),
+        Text(
+          title,
+          style: const TextStyle(
+              fontFamily: "Sora", fontSize: 20.0, fontWeight: FontWeight.bold),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 75.0),
+          child: Image.asset(secondImage),
+        )
       ],
     );
   }

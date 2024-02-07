@@ -23,3 +23,8 @@ flutter:
           - images/Rectangle 1706.jpg
           - images/arrow-left.jpg
           - images/bean.jpg
+
+fonts:
+      - family: Sora
+        fonts:
+              - asset: fonts/Sora-VariableFont_wght.ttf
