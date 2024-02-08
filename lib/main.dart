@@ -83,6 +83,9 @@ class MyHomePage extends StatelessWidget {
                             ),
                           ),
                         ),
+                        const SizedBox(
+                          width: 8,
+                        ),
                         Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
@@ -211,7 +214,7 @@ class MenuItem extends StatelessWidget {
                     style: TextStyle(
                         fontFamily: "Sora",
                         fontSize: 12,
-                        color: Colors.black.withOpacity(0.5)),
+                        color: Colors.black.withOpacity(0.25)),
                   )
                 ],
               )
@@ -247,21 +250,74 @@ class DescriptionSection extends StatelessWidget {
           child: RichText(
               textAlign: TextAlign.justify,
               text: TextSpan(children: [
-            TextSpan(
-              text: "$description..",
-              style: TextStyle(
-                  fontFamily: "Sora",
-                  fontSize: 16,
-                  color: Colors.black.withOpacity(0.25)),
-            ),
-            TextSpan(
-                text: "Read More",
-                style: TextStyle(
-                    fontFamily: "Sora", fontSize: 16, color: myBrownColor, fontWeight: FontWeight.bold))
-          ])),
+                TextSpan(
+                  text: "$description..",
+                  style: TextStyle(
+                      fontFamily: "Sora",
+                      fontSize: 16,
+                      color: Colors.black.withOpacity(0.25)),
+                ),
+                TextSpan(
+                    text: "Read More",
+                    style: TextStyle(
+                        fontFamily: "Sora",
+                        fontSize: 16,
+                        color: myBrownColor,
+                        fontWeight: FontWeight.bold))
+              ])),
         ),
         const SizedBox(height: 10.0),
       ],
     );
   }
 }
+
+class SizeSection extends StatelessWidget {
+  const SizeSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(
+      child: Column(
+        children: [
+          Text(
+            "Size",
+            style: TextStyle(
+                fontFamily: "Sora", fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          Row(
+            children: [],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class RoundedButton extends StatelessWidget {
+  const RoundedButton({super.key, required this.text, required this.textColor, required this.buttonColor, required this.borderColor});
+
+  final String text;
+  final Color textColor;
+  final Color buttonColor;
+  final Color borderColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: OutlinedButton(
+        onPressed: () {},
+        style: OutlinedButton.styleFrom(
+          foregroundColor: textColor, side: BorderSide(color: borderColor),
+          backgroundColor: buttonColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+        ),
+        child: Text(text, style: TextStyle(color: textColor)),
+      ),
+    );
+  }
+  }
+
