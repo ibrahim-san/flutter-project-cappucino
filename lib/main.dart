@@ -115,7 +115,8 @@ class MyHomePage extends StatelessWidget {
             ),
             const DescriptionSection(
                 description:
-                    "A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85 ml of fresh milk the fo")
+                    "A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85 ml of fresh milk the fo"),
+            const SizeSection(),
           ],
         ),
       ),
@@ -136,23 +137,26 @@ class AppBarComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 95.0),
-          child: Image.asset(firstImage),
-        ),
-        Text(
-          title,
-          style: const TextStyle(
-              fontFamily: "Sora", fontSize: 20.0, fontWeight: FontWeight.bold),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 95.0),
-          child: Image.asset(secondImage),
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 25, bottom: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 95.0),
+            child: Image.asset(firstImage),
+          ),
+          Text(
+            title,
+            style: const TextStyle(
+                fontFamily: "Sora", fontSize: 20.0, fontWeight: FontWeight.bold),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 95.0),
+            child: Image.asset(secondImage),
+          )
+        ],
+      ),
     );
   }
 }
@@ -277,17 +281,27 @@ class SizeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
+      width: 350,
+      height: 400,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const SizedBox(height: 10),
+          const Text(
             "Size",
             style: TextStyle(
                 fontFamily: "Sora", fontSize: 20, fontWeight: FontWeight.bold),
           ),
+          const SizedBox(height: 10),
           Row(
-            children: [],
-          )
+            children: [
+              const Expanded(child: RoundedButton(height: 50.0, text: "S", textColor: Colors.black, buttonColor: Colors.white, borderColor: Colors.grey)),
+              Expanded(child: RoundedButton(height: 50.0, text: "M", textColor: myBrownColor, buttonColor: Colors.pink.shade50, borderColor: myBrownColor)),
+              const Expanded(child: RoundedButton(height: 50.0, text: "L", textColor: Colors.black, buttonColor: Colors.white, borderColor: Colors.grey)),
+            ],
+          ),
+          const SizedBox(height: 15),
         ],
       ),
     );
@@ -295,27 +309,32 @@ class SizeSection extends StatelessWidget {
 }
 
 class RoundedButton extends StatelessWidget {
-  const RoundedButton({super.key, required this.text, required this.textColor, required this.buttonColor, required this.borderColor});
+  const RoundedButton({super.key, required this.text, required this.textColor, required this.buttonColor, required this.borderColor, required this.height});
 
   final String text;
   final Color textColor;
   final Color buttonColor;
   final Color borderColor;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: OutlinedButton(
-        onPressed: () {},
-        style: OutlinedButton.styleFrom(
-          foregroundColor: textColor, side: BorderSide(color: borderColor),
-          backgroundColor: buttonColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
+      // ignore: sized_box_for_whitespace
+      child: Container(
+        height: height,
+        child: OutlinedButton(
+          onPressed: () {},
+          style: OutlinedButton.styleFrom(
+            foregroundColor: textColor, side: BorderSide(color: borderColor),
+            backgroundColor: buttonColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(11.0),
+            ),
           ),
+          child: Text(text, style: TextStyle(color: textColor, fontFamily: "Sora", fontWeight: FontWeight.bold)),
         ),
-        child: Text(text, style: TextStyle(color: textColor)),
       ),
     );
   }
