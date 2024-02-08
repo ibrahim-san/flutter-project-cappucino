@@ -105,11 +105,14 @@ class MyHomePage extends StatelessWidget {
             SizedBox(
               width: 350,
               child: Divider(
-                    color: Colors.black.withOpacity(0.25), // Semi-opaque line
-                    thickness: 1, // Thin line
-                    height: 60, // Space above and below the divider
-                  ),
-            )
+                color: Colors.black.withOpacity(0.25), // Semi-opaque line
+                thickness: 1, // Thin line
+                height: 60, // Space above and below the divider
+              ),
+            ),
+            const DescriptionSection(
+                description:
+                    "A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85 ml of fresh milk the fo")
           ],
         ),
       ),
@@ -216,6 +219,48 @@ class MenuItem extends StatelessWidget {
           ),
         ),
         const Spacer(),
+      ],
+    );
+  }
+}
+
+class DescriptionSection extends StatelessWidget {
+  const DescriptionSection({super.key, required this.description});
+
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const SizedBox(
+          width: 360,
+          child: Text(
+            "Description",
+            style: TextStyle(
+                fontFamily: "Sora", fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+        const SizedBox(height: 10.0),
+        SizedBox(
+          width: 360,
+          child: RichText(
+              textAlign: TextAlign.justify,
+              text: TextSpan(children: [
+            TextSpan(
+              text: "$description..",
+              style: TextStyle(
+                  fontFamily: "Sora",
+                  fontSize: 16,
+                  color: Colors.black.withOpacity(0.25)),
+            ),
+            TextSpan(
+                text: "Read More",
+                style: TextStyle(
+                    fontFamily: "Sora", fontSize: 16, color: myBrownColor, fontWeight: FontWeight.bold))
+          ])),
+        ),
+        const SizedBox(height: 10.0),
       ],
     );
   }
