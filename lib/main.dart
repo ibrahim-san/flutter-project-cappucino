@@ -120,6 +120,9 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomAppBar(
+        child: CheckoutSection(price: "\$ 4.53", button: RoundedButton(text: "Buy Now", textColor: Colors.white, buttonColor: myBrownColor, borderColor: myBrownColor, height: 50)),
+      )
     );
   }
 }
@@ -190,13 +193,14 @@ class MenuItem extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 25),
               ),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 8.0),
               Text(
                 description,
                 style: TextStyle(
                     fontFamily: "Sora",
-                    color: Colors.black.withOpacity(0.5),
-                    fontSize: 13),
+                    color: Colors.black.withOpacity(0.25),
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10.0),
               Row(
@@ -204,21 +208,22 @@ class MenuItem extends StatelessWidget {
                   const Icon(
                     Icons.star,
                     color: Colors.yellow,
-                    size: 24.0,
+                    size: 28.0,
                   ),
                   Text(
                     "$rating",
                     style: const TextStyle(
                         fontFamily: "Sora",
-                        fontSize: 17,
+                        fontSize: 19,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
                     "($quantity)",
                     style: TextStyle(
                         fontFamily: "Sora",
-                        fontSize: 12,
-                        color: Colors.black.withOpacity(0.25)),
+                        fontSize: 16,
+                        color: Colors.black.withOpacity(0.25),
+                        fontWeight: FontWeight.bold),
                   )
                 ],
               )
@@ -258,14 +263,15 @@ class DescriptionSection extends StatelessWidget {
                   text: "$description..",
                   style: TextStyle(
                       fontFamily: "Sora",
-                      fontSize: 16,
-                      color: Colors.black.withOpacity(0.25)),
+                      fontSize: 18,
+                      color: Colors.black.withOpacity(0.25),
+                      fontWeight: FontWeight.bold),
                 ),
                 TextSpan(
                     text: "Read More",
                     style: TextStyle(
                         fontFamily: "Sora",
-                        fontSize: 16,
+                        fontSize: 18,
                         color: myBrownColor,
                         fontWeight: FontWeight.bold))
               ])),
@@ -340,3 +346,44 @@ class RoundedButton extends StatelessWidget {
   }
   }
 
+class CheckoutSection extends StatelessWidget {
+  const CheckoutSection({super.key, required this.price, required this.button});
+
+  final String price;
+  final Widget button;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 100,
+      child: Row(
+        children: [
+          Column(
+            children: [
+              Text(
+                "Price",
+                style: TextStyle(
+                  color: Colors.black.withOpacity(0.25),
+                  fontFamily: "Sora",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16
+                ),
+              ),
+              Text(
+                price,
+                style: TextStyle(
+                  color:myBrownColor,
+                  fontFamily: "Sora",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20
+                ),
+              )
+            ],
+          ),
+          button,
+        ],
+      ),
+    );
+  }
+}
