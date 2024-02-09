@@ -4,20 +4,7 @@ void main() {
   runApp(const MainApp());
 }
 
-final Map<int, Color> colorSwatch = {
-  50: const Color(0xFFD5C9BC),
-  100: const Color(0xFFC9B4A6),
-  200: const Color(0xFFBE9E8F),
-  300: const Color(0xFFB18878),
-  400: const Color(0xFFA47361),
-  500: const Color(0xFFC67C4E),
-  600: const Color(0xFFB86D41),
-  700: const Color(0xFFAA6034),
-  800: const Color(0xFF9C5327),
-  900: const Color(0xFF8E461A),
-};
-
-final MaterialColor myBrownColor = MaterialColor(0xFFAA6034, colorSwatch);
+Color myBrownColor = const Color(0xFFC77C4D);
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -27,7 +14,6 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: "Capuccino App",
       theme: ThemeData(
-        primarySwatch: myBrownColor,
         useMaterial3: true,
       ),
       home: const MyHomePage(),
@@ -124,7 +110,7 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
-          height: 170,
+          height: 145,
           color: Colors.white,
           elevation: 0,
           shadowColor: Colors.black.withOpacity(0.2),
@@ -377,7 +363,7 @@ class RoundedButton extends StatelessWidget {
             side: BorderSide(color: borderColor),
             backgroundColor: buttonColor,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(11.0),
+              borderRadius: BorderRadius.circular(14.0),
             ),
           ),
           child: Text(text,
@@ -401,7 +387,7 @@ class CheckoutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 60),
+      padding: const EdgeInsets.only(bottom: 40),
       child: Row(
           children: [
             Padding(
