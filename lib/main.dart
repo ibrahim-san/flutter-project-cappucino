@@ -120,7 +120,7 @@ class MyHomePage extends StatelessWidget {
                   text: "Buy Now",
                   textColor: Colors.white,
                   buttonColor: myBrownColor,
-                  fontSize: 21,
+                  fontSize: 19.5,
                   borderColor: myBrownColor,
                   height: 70)),
         ));
@@ -188,7 +188,7 @@ class MenuItem extends StatelessWidget {
                 style: const TextStyle(
                     fontFamily: "Sora",
                     fontWeight: FontWeight.bold,
-                    fontSize: 25),
+                    fontSize: 23.5),
               ),
               const SizedBox(height: 8.0),
               Text(
@@ -409,7 +409,7 @@ class CheckoutSection extends StatelessWidget {
                         color: myBrownColor,
                         fontFamily: "Sora",
                         fontWeight: FontWeight.bold,
-                        fontSize: 25),
+                        fontSize: 21),
                   )
                 ],
               ),
