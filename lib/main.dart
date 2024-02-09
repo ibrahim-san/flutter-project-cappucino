@@ -26,7 +26,10 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Capuccino App",
-      theme: ThemeData(primarySwatch: myBrownColor),
+      theme: ThemeData(
+        primarySwatch: myBrownColor,
+        useMaterial3: true,
+      ),
       home: const MyHomePage(),
     );
   }
@@ -38,92 +41,103 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: const AppBarComponent(
-              title: "Detail",
-              firstImage: "images/arrow-left.jpg",
-              secondImage: "images/Heart.jpg")),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 15, bottom: 15),
-              child: Center(
-                child: Image.asset(
-                  "images/Rectangle 1706.jpg",
-                  scale: 0.87,
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                const Expanded(
-                  child: MenuItem(
-                    description: "with Chocolate",
-                    foodItem: "Cappucino",
-                    rating: 4.8,
-                    quantity: 230,
+        appBar: AppBar(
+            title: const AppBarComponent(
+                title: "Detail",
+                firstImage: "images/arrow-left.jpg",
+                secondImage: "images/Heart.jpg")),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 15, bottom: 15),
+                child: Center(
+                  child: Image.asset(
+                    "images/Rectangle 1706.jpg",
+                    scale: 0.87,
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 50, left: 100),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 245, 241, 241),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              'images/bean.jpg',
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 8,
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 245, 241, 241),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              'images/milk.jpg',
-                            ),
-                          ),
-                        ),
-                      ],
+              ),
+              Row(
+                children: [
+                  const Expanded(
+                    child: MenuItem(
+                      description: "with Chocolate",
+                      foodItem: "Cappucino",
+                      rating: 4.8,
+                      quantity: 230,
                     ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(
-              width: 350,
-              child: Divider(
-                color: Colors.black.withOpacity(0.25), // Semi-opaque line
-                thickness: 1, // Thin line
-                height: 60, // Space above and below the divider
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 50, left: 100),
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 245, 241, 241),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'images/bean.jpg',
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 245, 241, 241),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'images/milk.jpg',
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-            const DescriptionSection(
-                description:
-                    "A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85 ml of fresh milk the fo"),
-            const SizeSection(),
-          ],
+              SizedBox(
+                width: 350,
+                child: Divider(
+                  color: Colors.black.withOpacity(0.25), // Semi-opaque line
+                  thickness: 1, // Thin line
+                  height: 60, // Space above and below the divider
+                ),
+              ),
+              const DescriptionSection(
+                  description:
+                      "A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85 ml of fresh milk the fo"),
+              const SizeSection(),
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: CheckoutSection(price: "\$ 4.53", button: RoundedButton(text: "Buy Now", textColor: Colors.white, buttonColor: myBrownColor, borderColor: myBrownColor, height: 50)),
-      )
-    );
+        bottomNavigationBar: BottomAppBar(
+          height: 170,
+          color: Colors.white,
+          elevation: 0,
+          shadowColor: Colors.black.withOpacity(0.2),
+          child: CheckoutSection(
+              price: "\$ 4.53",
+              button: RoundedButton(
+                  text: "Buy Now",
+                  textColor: Colors.white,
+                  buttonColor: myBrownColor,
+                  fontSize: 21,
+                  borderColor: myBrownColor,
+                  height: 70)),
+        ));
   }
 }
 
@@ -140,26 +154,23 @@ class AppBarComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 25, bottom: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 95.0),
-            child: Image.asset(firstImage),
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-                fontFamily: "Sora", fontSize: 20.0, fontWeight: FontWeight.bold),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 95.0),
-            child: Image.asset(secondImage),
-          )
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(right: 95.0),
+          child: Image.asset(firstImage),
+        ),
+        Text(
+          title,
+          style: const TextStyle(
+              fontFamily: "Sora", fontSize: 20.0, fontWeight: FontWeight.bold),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 95.0),
+          child: Image.asset(secondImage),
+        )
+      ],
     );
   }
 }
@@ -288,7 +299,7 @@ class SizeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 350,
+      width: 360,
       height: 400,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -302,9 +313,30 @@ class SizeSection extends StatelessWidget {
           const SizedBox(height: 10),
           Row(
             children: [
-              const Expanded(child: RoundedButton(height: 50.0, text: "S", textColor: Colors.black, buttonColor: Colors.white, borderColor: Colors.grey)),
-              Expanded(child: RoundedButton(height: 50.0, text: "M", textColor: myBrownColor, buttonColor: Colors.pink.shade50, borderColor: myBrownColor)),
-              const Expanded(child: RoundedButton(height: 50.0, text: "L", textColor: Colors.black, buttonColor: Colors.white, borderColor: Colors.grey)),
+              const Expanded(
+                  child: RoundedButton(
+                      height: 50.0,
+                      fontSize: 15,
+                      text: "S",
+                      textColor: Colors.black,
+                      buttonColor: Colors.white,
+                      borderColor: Colors.grey)),
+              Expanded(
+                  child: RoundedButton(
+                      height: 50.0,
+                      fontSize: 15,
+                      text: "M",
+                      textColor: myBrownColor,
+                      buttonColor: Colors.pink.shade50,
+                      borderColor: myBrownColor)),
+              const Expanded(
+                  child: RoundedButton(
+                      height: 50.0,
+                      fontSize: 15,
+                      text: "L",
+                      textColor: Colors.black,
+                      buttonColor: Colors.white,
+                      borderColor: Colors.grey)),
             ],
           ),
           const SizedBox(height: 15),
@@ -315,13 +347,21 @@ class SizeSection extends StatelessWidget {
 }
 
 class RoundedButton extends StatelessWidget {
-  const RoundedButton({super.key, required this.text, required this.textColor, required this.buttonColor, required this.borderColor, required this.height});
+  const RoundedButton(
+      {super.key,
+      required this.text,
+      required this.textColor,
+      required this.buttonColor,
+      required this.borderColor,
+      required this.height,
+      required this.fontSize});
 
   final String text;
   final Color textColor;
   final Color buttonColor;
   final Color borderColor;
   final double height;
+  final double fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -333,18 +373,24 @@ class RoundedButton extends StatelessWidget {
         child: OutlinedButton(
           onPressed: () {},
           style: OutlinedButton.styleFrom(
-            foregroundColor: textColor, side: BorderSide(color: borderColor),
+            foregroundColor: textColor,
+            side: BorderSide(color: borderColor),
             backgroundColor: buttonColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(11.0),
             ),
           ),
-          child: Text(text, style: TextStyle(color: textColor, fontFamily: "Sora", fontWeight: FontWeight.bold)),
+          child: Text(text,
+              style: TextStyle(
+                  color: textColor,
+                  fontFamily: "Sora",
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.bold)),
         ),
       ),
     );
   }
-  }
+}
 
 class CheckoutSection extends StatelessWidget {
   const CheckoutSection({super.key, required this.price, required this.button});
@@ -352,37 +398,38 @@ class CheckoutSection extends StatelessWidget {
   final String price;
   final Widget button;
 
-
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 100,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 60),
       child: Row(
-        children: [
-          Column(
-            children: [
-              Text(
-                "Price",
-                style: TextStyle(
-                  color: Colors.black.withOpacity(0.25),
-                  fontFamily: "Sora",
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16
-                ),
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 40, left: 25, bottom: 5),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Price",
+                    style: TextStyle(
+                        color: Colors.black.withOpacity(0.25),
+                        fontFamily: "Sora",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  Text(
+                    price,
+                    style: TextStyle(
+                        color: myBrownColor,
+                        fontFamily: "Sora",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25),
+                  )
+                ],
               ),
-              Text(
-                price,
-                style: TextStyle(
-                  color:myBrownColor,
-                  fontFamily: "Sora",
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20
-                ),
-              )
-            ],
-          ),
-          button,
-        ],
+            ),
+            Expanded(child: button),
+          ],
       ),
     );
   }
