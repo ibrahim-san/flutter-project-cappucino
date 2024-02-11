@@ -14,11 +14,11 @@ This project showcases a Flutter application designed to detail a cappuccino pro
 
 1. **Pixel 7 View**
    
-   <img src="screenshots/pixel 7.png" alt="pixel 7 view">
+   <img src="https://github.com/ibrahim-san/flutter-project-cappucino/blob/main/screenshots/pixel 7.png" alt="pixel 7 view">
 
 2. **iPhone 14 Pro View**
    
-   <img src="screenshots/iphone 14 pro max.png" alt="iphone 14 pro max view">
+   <img src="https://github.com/ibrahim-san/flutter-project-cappucino/blob/main/screenshots/iphone 14 pro max.png" alt="iphone 14 pro max view">
 
 ## How to Run
 
