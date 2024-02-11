@@ -14,11 +14,11 @@ This project showcases a Flutter application designed to detail a cappuccino pro
 
 1. **Pixel 7 View**
    
-   ![Pixel 7 Screenshot](screenshots\pixel 7.png)
+   <img src="screenshots\pixel 7.png" alt="pixel 7 view">
 
 2. **iPhone 14 Pro View**
    
-   ![iPhone 14 Pro Screenshot](screenshots\iphone 14 pro max.png)
+   <img src="screenshots\iphone 14 pro max.png" alt="pixel 7 view">
 
 ## How to Run
 
